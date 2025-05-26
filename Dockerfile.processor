@@ -1,0 +1,18 @@
+FROM ubuntu:20.04
+
+# Install required packages
+RUN apt-get update && \
+    apt-get install -y \
+    docker.io \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy and set up the processor script
+COPY process_orders.sh /usr/local/bin/process_orders
+RUN chmod +x /usr/local/bin/process_orders
+
+# Set up working directory
+RUN mkdir /data
+WORKDIR /data
+
+# Set the entrypoint
+ENTRYPOINT ["/usr/local/bin/process_orders"] 

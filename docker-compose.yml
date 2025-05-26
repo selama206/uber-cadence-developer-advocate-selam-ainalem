@@ -1,0 +1,46 @@
+version: "3"
+services:
+  worker:
+    build: .
+    container_name: cadence-eating-worker
+    environment:
+      # Use DNS service discovery with label-based lookup
+      - CADENCE_CLI_ADDRESS=${CADENCE_HOST:-docker-cadence-1}:7933
+    networks:
+      - docker_default
+    labels:
+      - "app=eats-workflow"
+      - "component=worker"
+    depends_on:
+      - cadence-setup
+
+  processor:
+    build:
+      context: .
+      dockerfile: Dockerfile.processor
+    volumes:
+      - ./sample_orders.csv:/data/sample_orders.csv
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - CADENCE_CLI_ADDRESS=${CADENCE_HOST:-docker-cadence-1}:7933
+    networks:
+      - docker_default
+    labels:
+      - "app=eats-workflow"
+      - "component=processor"
+    depends_on:
+      - worker
+
+  # Add a setup container to ensure Cadence is ready
+  cadence-setup:
+    image: alpine
+    command: sh -c "until nc -z ${CADENCE_HOST:-docker-cadence-1} 7933; do echo waiting for cadence; sleep 2; done"
+    networks:
+      - docker_default
+    labels:
+      - "app=eats-workflow"
+      - "component=setup"
+
+networks:
+  docker_default:
+    external: true

@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.uber.cadence:cadence-client:3.10.0'
+    implementation 'org.slf4j:slf4j-simple:1.7.30'
+}
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
