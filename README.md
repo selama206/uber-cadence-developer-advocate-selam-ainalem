@@ -126,17 +126,18 @@ These activities are defined in the `EatsActivities` interface and implemented i
 
 The project is containerized and processes orders from a CSV file. To run it:
 
-1. Start the Cadence services:
+1. Start the Cadence services :
+In a separate terminal, clone Cadence repo to get a local version of Cadence service running on your machine. Then run the command:
 ```bash
  docker-compose up
 ```
 
-2. Start the worker to handle workflow tasks:
+2. In a seperate terminal start the worker to handle workflow tasks:
 ```bash
 docker-compose build --no-cache worker && docker-compose up -d worker
 ```
 
-3. Process orders from the sample CSV:
+3. In a seperate terminal process orders from the sample CSV:
 ```bash
 docker-compose build --no-cache processor && docker-compose run processor sample_orders.csv
 ```
