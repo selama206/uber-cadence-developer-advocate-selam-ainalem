@@ -1,2 +1,5 @@
-title: Cadence WorkFlow Delievery Take Home Walkthrough
+title: Cadence WorkFlow Delievery Take-Home Walkthrough
 remote_theme: pmarsceill/just-the-docs
+
+include:
+  - assets
