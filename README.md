@@ -8,7 +8,7 @@ This project demonstrates a food ordering workflow using Uber's Cadence workflow
 ## Runthrough of Cadence WorkFlow
 
   <video controls width="100%" autoplay muted loop>
-  <source src="{{ '/docs/assets/uber-developer-advocate-demo.mp4 }}" type="video/mp4">
+  <source src="{{ '/docs/assets/uber-developer-advocate-demo.mp4 | relative_url }}" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
