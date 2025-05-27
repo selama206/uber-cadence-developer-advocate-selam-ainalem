@@ -12,6 +12,10 @@ This project demonstrates a food ordering workflow using Uber's Cadence workflow
   Your browser does not support the video tag.
 </video>
 
+<video controls width="100%" autoplay muted loop>
+  <source src="/docs/assets/uber-developer-advocate-demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Explain the process of your learning and implementation
 I began by reviewing the official Cadence documentation to build a solid foundation in workflow concepts. To deepen my understanding, I explored [GitHub examples](https://github.com/cadence-workflow/cadence-java-samples) and tutorial videos from Cadence's YouTube channel. Before starting the main project, I built a simplified HelloWorld example to get hands-on experience with workflow architecture as code and to see how workflows show up in Cadence's UI. I also used AI tools throughout the process to speed up my learning and make debugging more efficient.
