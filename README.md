@@ -2,9 +2,6 @@
 
 This project demonstrates a food ordering workflow using Uber's Cadence workflow engine. It processes orders from a CSV file and manages the order lifecycle through Cadence workflows.
 
-
-## [Live GitHub Pages Site - Cadence WorkFlow Delievery Take-Home Walkthrough](https://selama206.github.io/uber-cadence-developer-advocate-selam-ainalem/)
-
 ## Runthrough of Cadence WorkFlow
 
 <video controls width="100%" height="auto" playsinline autoplay muted loop>
