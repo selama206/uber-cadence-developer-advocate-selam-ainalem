@@ -19,7 +19,7 @@ I began by reviewing the official Cadence documentation to build a solid foundat
 
 
 ## Provide feedback about this process to explain how it can be improved
-The Cadence YouTube videos linked on the [documentation page](https://cadenceworkflow.io/docs/get-started/video-tutorials) are visually clear and helpful to follow. There is a [video](https://www.youtube.com/watch?v=aLyRyNe5Ls0) that demonstrates how to register a domain on youtube which isn't currently linked on the Cadence page. Including that in the list would be a valuable addition for those setting up their environment for the first time.
+The Cadence YouTube videos linked on the [documentation page](https://cadenceworkflow.io/docs/get-started/video-tutorials) are visually clear and helpful to follow. There is a [video](https://www.youtube.com/watch?v=aLyRyNe5Ls0) not included in the video tutorials section that demonstrates how to register a domain on youtube which isn't currently linked on the Cadence page. Including that in the list would be a valuable addition for those setting up their environment and ramping up with Cadence/Workflow architecture for the first time.
 
 ## Explain how your workflow works in detail
 
@@ -125,12 +125,23 @@ These activities are defined in the `EatsActivities` interface and implemented i
    - Confirms delivery completion
    - Returns success message
 
+### Running WorkFlow
 
-### Script Processing
+The project is containerized and processes orders from a CSV file. To run it:
 
-The `process_orders.sh` script provides automated order processing:
-- Reads orders from CSV
-- Generates unique IDs
-- Manages workflow execution
-- Handles signals and timing
-- Provides detailed logging
+1. Start the Cadence services:
+```bash
+ docker-compose up
+```
+
+2. Start the worker to handle workflow tasks:
+```bash
+docker-compose build --no-cache worker && docker-compose up -d worker
+```
+
+3. Process orders from the sample CSV:
+```bash
+docker-compose build --no-cache processor && docker-compose run processor sample_orders.csv
+```
+
+The script will read orders from the CSV, submit them to the workflow, and simulate restaurant decisions. Monitor the output to see the order status updates.
