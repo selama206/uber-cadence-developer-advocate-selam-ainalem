@@ -1,4 +1,4 @@
-# WorkFlow Delievery Take Home
+# WorkFlow Delievery
 
 This project demonstrates a food ordering workflow using Uber's Cadence workflow engine. It processes orders from a CSV file and manages the order lifecycle through Cadence workflows.
 
